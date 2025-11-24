@@ -1,0 +1,78 @@
+local Players = game:GetService(“Players”) local LocalPlayer =
+Players.LocalPlayer local UIS = game:GetService(“UserInputService”)
+local RunService = game:GetService(“RunService”)
+
+– GUI local ScreenGui = Instance.new(“ScreenGui”) ScreenGui.Parent =
+LocalPlayer:WaitForChild(“PlayerGui”)
+
+– Key Frame local KeyFrame = Instance.new(“Frame”) KeyFrame.Size =
+UDim2.new(0,300,0,150) KeyFrame.Position = UDim2.new(0.5,-150,0.3,-75)
+KeyFrame.BackgroundColor3 = Color3.fromRGB(50,50,50)
+KeyFrame.BorderSizePixel = 0 KeyFrame.Parent = ScreenGui
+
+local keyCorner = Instance.new(“UICorner”) keyCorner.CornerRadius =
+UDim.new(0,20) keyCorner.Parent = KeyFrame
+
+– Nút X (đóng GUI) local CloseButton = Instance.new(“TextButton”)
+CloseButton.Size = UDim2.new(0,30,0,30) CloseButton.Position =
+UDim2.new(1,-35,0,5) CloseButton.BackgroundColor3 =
+Color3.fromRGB(255,0,0) CloseButton.Text = “X” CloseButton.TextColor3 =
+Color3.fromRGB(255,255,255) CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextSize = 18 CloseButton.BorderSizePixel = 0
+CloseButton.Parent = KeyFrame
+
+local closeCorner = Instance.new(“UICorner”) closeCorner.CornerRadius =
+UDim.new(0,15) closeCorner.Parent = CloseButton
+
+CloseButton.MouseButton1Click:Connect(function() KeyFrame:Destroy() if
+TeleFrame then TeleFrame:Destroy() end end)
+
+– Label local KeyLabel = Instance.new(“TextLabel”) KeyLabel.Size =
+UDim2.new(1,0,0.25,0) KeyLabel.Position = UDim2.new(0,0,0,0)
+KeyLabel.BackgroundTransparency = 1 KeyLabel.Text = “Enter Key:”
+KeyLabel.TextSize = 20 KeyLabel.TextColor3 = Color3.fromRGB(255,255,255)
+KeyLabel.Font = Enum.Font.GothamBold KeyLabel.Parent = KeyFrame
+
+– TextBox (trống, placeholder) local KeyBox = Instance.new(“TextBox”)
+KeyBox.Size = UDim2.new(1, -20,0.25,0) KeyBox.Position =
+UDim2.new(0,10,0.3,0) KeyBox.Text = “” KeyBox.PlaceholderText = “Enter
+Key…” KeyBox.TextSize = 18 KeyBox.TextColor3 = Color3.fromRGB(0,0,0)
+KeyBox.Font = Enum.Font.Gotham KeyBox.BackgroundColor3 =
+Color3.fromRGB(255,255,255) KeyBox.BorderSizePixel = 0
+KeyBox.ClearTextOnFocus = false KeyBox.Parent = KeyFrame
+
+local boxCorner = Instance.new(“UICorner”) boxCorner.CornerRadius =
+UDim.new(0,15) boxCorner.Parent = KeyBox
+
+– Confirm Button local ConfirmButton = Instance.new(“TextButton”)
+ConfirmButton.Size = UDim2.new(0,100,0,40) ConfirmButton.Position =
+UDim2.new(0.5,-50,0.6,0) ConfirmButton.BackgroundColor3 =
+Color3.fromRGB(0,170,255) ConfirmButton.Text = “Confirm”
+ConfirmButton.TextSize = 18 ConfirmButton.TextColor3 =
+Color3.fromRGB(255,255,255) ConfirmButton.Font = Enum.Font.GothamBold
+ConfirmButton.BorderSizePixel = 0 ConfirmButton.Parent = KeyFrame
+
+local btnCorner = Instance.new(“UICorner”) btnCorner.CornerRadius =
+UDim.new(0,15) btnCorner.Parent = ConfirmButton
+
+– MsgLabel local MsgLabel = Instance.new(“TextLabel”) MsgLabel.Size =
+UDim2.new(1,0,0.15,0) MsgLabel.Position = UDim2.new(0,0,0.85,0)
+MsgLabel.BackgroundTransparency = 1 MsgLabel.Text = “” MsgLabel.TextSize
+= 16 MsgLabel.Font = Enum.Font.Gotham MsgLabel.Parent = KeyFrame
+
+– Teleporter GUI local TeleFrame = Instance.new(“Frame”) TeleFrame.Size
+= UDim2.new(0,180,0,100) TeleFrame.Position = UDim2.new(0.5,-90,0.7,-50)
+TeleFrame.BackgroundTransparency = 1 TeleFrame.Parent = ScreenGui
+TeleFrame.Visible = false
+
+– Main Button local Button = Instance.new(“TextButton”) Button.Size =
+UDim2.new(0,180,0,60) Button.Position = UDim2.new(0,0,0,0)
+Button.BackgroundColor3 = Color3.fromRGB(255,0,0) Button.Text = “OFF”
+Button.TextSize = 18 Button.Font = Enum.Font.GothamBold
+Button.BorderSizePixel = 0 Button.AutoButtonColor = false Button.Parent
+= TeleFrame
+
+local corner = Instance.new(“UICorner”) corner.CornerRadius =
+UDim.new(0,25) corner.Parent = Button
+
+– Rainbow
